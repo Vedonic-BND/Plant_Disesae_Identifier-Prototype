@@ -4531,7 +4531,7 @@ prx.types.html = {
         var iframe = new prx.componentsHelper.IFrame($('#'+_id).get(0));
         iframe.doc.body.style.margin = '0px';
 	    var div = iframe.doc.createElement('div');
-	    div.innerHTML = DOMPurify.sanitize(item.html, {ADD_TAGS: ['iframe', 'html', 'body'], FORCE_BODY: true});
+	    div.innerHTML = DOMPurify.sanitize(item.html, {ADD_TAGS: ['iframe', 'html', 'body'], FORCE_BODY: true, ADD_ATTR: ['allow']});
 	    iframe.doc.body.appendChild(div);
     }
     ,propertyGroups: [
@@ -4543,7 +4543,7 @@ prx.types.html = {
 			    	,name: 'html'
 			    	,type: 'html-textarea'
 			    	,value: function(item,name) {
-			    		return DOMPurify.sanitize(item.html, {ADD_TAGS: ['iframe', 'html', 'body'], FORCE_BODY: true});
+			    		return DOMPurify.sanitize(item.html, {ADD_TAGS: ['iframe', 'html', 'body'], FORCE_BODY: true, ADD_ATTR: ['allow']});
 			    	}
 			    	,changeProperty: {
                         caption: 'HTML code',
